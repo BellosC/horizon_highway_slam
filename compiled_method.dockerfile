@@ -1,7 +1,7 @@
 FROM ros:kinetic-ros-base
 
 RUN apt-get update && apt-get install -y libeigen3-dev libpcl-dev libsuitesparse-dev
-RUN apt-get update && apt-get install -y ros-kinetic-tf ros-kinetic-pcl-ros
+RUN apt-get update && apt-get install -y ros-kinetic-tf ros-kinetic-pcl-ros ros-kinetic-libg2o
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY ./ /root/horizon_ws/src/horizon_highway_slam/
