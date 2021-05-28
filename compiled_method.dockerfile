@@ -7,7 +7,7 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY ./ /root/horizon_ws/src/horizon_highway_slam/
 COPY ./compiled_entrypoint.sh /entrypoint.sh
 
-RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /root/horizon_ws; catkin_make'
+RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /root/horizon_ws; catkin_make -j"$(($(nproc)+1))"'
 
 ENV BAGNAME 8_Shape_Path
 ENV IMU 2
